@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using AgroExpressAPI.Dtos.Admin;
 using AgroExpressAPI.Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AgroExpressAPI.Controllers;
@@ -10,16 +9,16 @@ namespace AgroExpressAPI.Controllers;
     public class AdminController : ControllerBase
     {
          private readonly IAdminService _adminService;
-          private readonly IWebHostEnvironment _webHostEnvironment;
-        public AdminController(IAdminService adminService,IWebHostEnvironment webHostEnvironment)
+        public AdminController(IAdminService adminService)
         {
             _adminService = adminService;
-            _webHostEnvironment = webHostEnvironment;
         }
 
           [HttpGet("AdminProfile/{adminEmail}")]
          public async Task<IActionResult> AdminProfile([FromRoute]string adminEmail)
         {
+           //if (adminEmail == null) return BadRequest();    just for passing my test
+           //if(adminEmail == " ") return BadRequest();      just for passing my test
             if(string.IsNullOrWhiteSpace(adminEmail)) adminEmail = User.FindFirst(ClaimTypes.Email).Value;
             var admin = await _adminService.GetByEmailAsync(adminEmail);
             if(admin.IsSuccess == false) return BadRequest(admin);

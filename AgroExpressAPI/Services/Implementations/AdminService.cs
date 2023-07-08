@@ -67,6 +67,14 @@ public class AdminService : IAdminService
 
         public async Task<BaseResponse<AdminDto>> GetByEmailAsync(string adminEmail)
         {
+              if(adminEmail == null || adminEmail == "" || adminEmail == " ")
+                {
+                    return new BaseResponse<AdminDto>
+                    {
+                        Message = "Invalid Input",
+                        IsSuccess = false
+                    };
+                }
               var admin =  _adminRepository.GetByEmailAsync(adminEmail);
               if(admin == null)
               {
@@ -104,6 +112,14 @@ public class AdminService : IAdminService
 
         public async Task<BaseResponse<AdminDto>> GetByIdAsync(string adminId)
         {
+            if (adminId == null || adminId == "" || adminId == " ")
+            {
+                return new BaseResponse<AdminDto>
+                {
+                    Message = "Invalid Input",
+                    IsSuccess = false
+                };
+            }
              var admin =  _adminRepository.GetByIdAsync(adminId);
                if(admin == null)
               {
@@ -139,7 +155,16 @@ public class AdminService : IAdminService
 
         public async Task<BaseResponse<AdminDto>> UpdateAsync(UpdateAdminRequestModel updateAdminModel, string id)
         {
-              var updateAdmin = new UpdateUserRequestModel{
+                if (updateAdminModel == null || id == null)
+                {
+                    return new BaseResponse<AdminDto>
+                    {
+                        Message = "Invalid Input",
+                        IsSuccess = false
+                    };
+
+                }
+           var updateAdmin = new UpdateUserRequestModel{
                 UserName = updateAdminModel.UserName,
                 Name = updateAdminModel.Name,
                 PhoneNumber  = updateAdminModel.PhoneNumber,
