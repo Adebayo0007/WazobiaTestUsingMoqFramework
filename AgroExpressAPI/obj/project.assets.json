@@ -7952,11 +7952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\FinalProject\\New folder\\AgroExpressAPI\\AgroExpressAPI.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\Projects\\FinalProject\\New folder\\AgroExpressAPI\\AgroExpressAPI.csproj",
       "projectName": "AgroExpressAPI",
-      "projectPath": "C:\\Users\\user\\Desktop\\FinalProject\\New folder\\AgroExpressAPI\\AgroExpressAPI.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\Projects\\FinalProject\\New folder\\AgroExpressAPI\\AgroExpressAPI.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\FinalProject\\New folder\\AgroExpressAPI\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\Projects\\FinalProject\\New folder\\AgroExpressAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7967,6 +7967,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8061,7 +8062,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   }

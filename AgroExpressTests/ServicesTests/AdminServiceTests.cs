@@ -285,7 +285,37 @@ namespace AgroExpressTests.ServicesTests
             Assert.AreEqual(result.Message, "Invalid Input");
             Assert.AreEqual(result.Data, null);
         }
-       
+        [Test]
+        public async Task UpdateAsync_WhenIdIsEmptyString_ReturningMessageOfInvalidInput()
+        {
+            //Arrange
+            var updateAdminRequestModel = new UpdateAdminRequestModel();
+            string id = "";
+            _iUserRepository.Setup(u => u.Update(_user)).Returns(_user);
+            //Act
+            var result = await _iAdminService.UpdateAsync(updateAdminRequestModel, id);
+            //Assert
+            Assert.That(result, Is.InstanceOf<BaseResponse<AdminDto>>());
+            Assert.AreEqual(result.IsSuccess, false);
+            Assert.AreEqual(result.Message, "Invalid Input");
+            Assert.AreEqual(result.Data, null);
+        }
+        [Test]
+        public async Task UpdateAsync_WhenIdIsWhiteSpace_ReturningMessageOfInvalidInput()
+        {
+            //Arrange
+            var updateAdminRequestModel = new UpdateAdminRequestModel();
+            string id = " ";
+            _iUserRepository.Setup(u => u.Update(_user)).Returns(_user);
+            //Act
+            var result = await _iAdminService.UpdateAsync(updateAdminRequestModel, id);
+            //Assert
+            Assert.That(result, Is.InstanceOf<BaseResponse<AdminDto>>());
+            Assert.AreEqual(result.IsSuccess, false);
+            Assert.AreEqual(result.Message, "Invalid Input");
+            Assert.AreEqual(result.Data, null);
+        }
+
 
     }
 }
